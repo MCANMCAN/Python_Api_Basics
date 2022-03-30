@@ -6,8 +6,8 @@ import time
 # Coordinates of Maltepe/İstanbul 
 
 LOCAL_DIFF = 3
-MY_LAT = 40.940830 
-MY_LONG = 29.115850 
+MY_LAT =-50.0730
+MY_LONG = 120.5299
 message_positive = " Passing through your location. You can look up to sky. "
 message_negative = " No need to check , You cant see now . "
 def send_mail(message) : 
@@ -55,7 +55,12 @@ print(latitude_status)
 print(longitude_status)
 current_hour = int(time_now.hour)
 if latitude_status == True and longitude_status == True : 
-    if current_hour >= sunset and current_hour >= sunrise : 
+    print("here")
+    print(sunset)
+    print(sunrise)
+    print(current_hour >= sunset or current_hour <= sunrise)
+    if current_hour >= sunset or current_hour <= sunrise : 
+        print("herehere")
         send_mail(message_positive)
 else : 
     send_mail(message_negative)
